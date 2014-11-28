@@ -26,7 +26,7 @@ module.exports = function(grunt){
                 }
             },
             jade: {
-                files: ['<%= config.src %>/templates/jade/*.jade'],
+                files: ['<%= config.src %>/templates/jade/*.jade', '<%= config.src %>/*.jade'],
                 tasks: ['jade'],
                 options: {
                     livereload: true
@@ -81,17 +81,27 @@ module.exports = function(grunt){
         jade: {
             compile: {
                 options: {
-                  data: {
-                    debug: false
-                  }
+                    pretty: true,
+                    data: {
+                        debug: false
+                    }
                 },
-                files: [{
-                  expand: true,
-                  cwd: "<%= config.src %>/templates/jade",
-                  src: [ '*.jade' ],
-                  ext: '.html',
-                  dest: '<%= config.src %>/templates'
-                }]
+                files: [
+                    {
+                        expand: true,
+                        cwd: "<%= config.src %>/templates/jade",
+                        src: [ '*.jade' ],
+                        ext: '.html',
+                        dest: '<%= config.src %>/templates'
+                    },
+                    {
+                        expand: true,
+                        cwd: "<%= config.src %>",
+                        src: [ '*.jade' ],
+                        ext: '.html',
+                        dest: '<%= config.src %>'
+                    }
+                ]
             }
         },
 
