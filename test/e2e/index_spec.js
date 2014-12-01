@@ -1,6 +1,6 @@
 describe('#index html', function() {
     it('should have a title', function() {
-        browser.get('/#');
+        browser.get('#/');
         expect(browser.getTitle()).toEqual('Yeah!');
     });
 });
