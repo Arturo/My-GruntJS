@@ -25,6 +25,13 @@ module.exports = function(grunt){
                     livereload: true
                 }
             },
+            slim: {
+                files: ['<%= config.src %>/templates/slim/*.slim', '<%= config.src %>/*.slim'],
+                tasks: ['slim'],
+                options: {
+                    livereload: true
+                }
+            },
             jade: {
                 files: ['<%= config.src %>/templates/jade/*.jade', '<%= config.src %>/*.jade'],
                 tasks: ['jade'],
@@ -71,6 +78,34 @@ module.exports = function(grunt){
                 src: ['*.css.scss', '*.scss'],
                 ext: '.css',
                 dest: '<%= config.src %>/styles'
+            }
+        },
+
+        /*
+         * Slim
+         */
+
+        slim: {
+            src: {
+                options: {
+                    pretty: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: "<%= config.src %>/templates/slim",
+                        src: ['*.slim'],
+                        dest: "<%= config.src %>/templates",
+                        ext: '.html'
+                    },
+                    {
+                        expand: true,
+                        cwd: "<%= config.src %>",
+                        src: ['*.slim'],
+                        dest: "<%= config.src %>",
+                        ext: '.html'
+                    }
+                ]
             }
         },
 
@@ -125,13 +160,14 @@ module.exports = function(grunt){
         browserSync: {
             bsFiles: {
                 src : [
-                    "<%= config.src %>/index.html",
+                    "<%= config.src %>/*.html",
                     "<%= config.src %>/templates/*.html",
                     "<%= config.src %>/styles/*.css",
                     "<%= config.src %>/scripts/**/*.js"
                 ]
             },
             options: {
+                watchTask: true,
                 server: {
                     baseDir: "<%= config.src %>"
                 }
