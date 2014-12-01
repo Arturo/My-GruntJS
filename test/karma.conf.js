@@ -15,7 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        "node_modules/chai/chai.js",
         "app/bower_components/angular/angular.js",
+        "app/bower_components/angular-mocks/angular-mocks.js",
         'test/**/*.js'
     ],
 
@@ -38,7 +40,7 @@ module.exports = function(config) {
 
 
     // web server port
-    port: 3001,
+    port: 9876,
 
 
     // enable / disable colors in the output (reporters and logs)

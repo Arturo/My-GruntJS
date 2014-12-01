@@ -52,10 +52,6 @@ module.exports = function(grunt){
                 options: {
                     livereload: true
                 }
-            },
-            karma: {
-                files: ['app/scripts/**/*.js', 'test/**/*.js'],
-                tasks: ['karma:unit:run'] //NOTE the :run flag
             }
         },
 
@@ -184,11 +180,31 @@ module.exports = function(grunt){
 
         karma: {
             unit: {
-                configFile: 'karma.conf.js',
+                configFile: 'test/karma.conf.js',
                 autoWatch: true
             }
         },
 
+        /*
+         * Protractor
+         */
+
+        protractor: {
+            options: {
+                keepAlive: false,
+                configFile: "test/protractor.conf.js"
+            },
+            run: {}
+        },
+
+        protractor_webdriver: {
+            start: {
+                options: {
+                    path: 'node_modules/protractor/bin/',
+                    command: 'webdriver-manager start'
+                }
+            }
+        },
         /*
          * Wiredep
          * Automatically inject Bower components into the app
