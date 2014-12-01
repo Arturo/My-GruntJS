@@ -52,6 +52,10 @@ module.exports = function(grunt){
                 options: {
                     livereload: true
                 }
+            },
+            karma: {
+                files: ['app/scripts/**/*.js', 'test/**/*.js'],
+                tasks: ['karma:unit:run'] //NOTE the :run flag
             }
         },
 
@@ -175,6 +179,18 @@ module.exports = function(grunt){
         },
 
         /*
+         * Karma
+         */
+
+        karma: {
+            unit: {
+                options: {
+                    files: ['test/**/*.js']
+                }
+            }
+        },
+
+        /*
          * Wiredep
          * Automatically inject Bower components into the app
          */
@@ -207,6 +223,7 @@ module.exports = function(grunt){
         }
     });
 
+    grunt.registerTask('test', ["karma:unit:run"]);
     grunt.registerTask('default', ["browserSync", "watch", "wiredep"]);
 
 };
