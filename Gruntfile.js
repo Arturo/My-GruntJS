@@ -25,6 +25,13 @@ module.exports = function(grunt){
                     livereload: true
                 }
             },
+            coffee: {
+                files: ["<%= config.src %>/scripts/coffee/*.coffee"],
+                tasks: ['coffee'],
+                options: {
+                    livereload: true
+                }
+            },
             slim: {
                 files: ['<%= config.src %>/templates/slim/*.slim', '<%= config.src %>/*.slim'],
                 tasks: ['slim', 'wiredep'],
@@ -137,6 +144,20 @@ module.exports = function(grunt){
                         dest: '<%= config.src %>'
                     }
                 ]
+            }
+        },
+
+        /*
+         * Coffee
+         */
+
+        coffee: {
+            build: {
+                expand: true,
+                cwd: "<%= config.src %>/scripts/coffee",
+                src: [ '*.coffee' ],
+                dest: "<%= config.src %>/scripts",
+                ext: '.js'
             }
         },
 
