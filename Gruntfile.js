@@ -184,9 +184,8 @@ module.exports = function(grunt){
 
         karma: {
             unit: {
-                options: {
-                    files: ['test/**/*.js']
-                }
+                configFile: 'karma.conf.js',
+                autoWatch: true
             }
         },
 
