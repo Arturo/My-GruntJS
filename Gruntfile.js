@@ -194,7 +194,9 @@ module.exports = function(grunt){
                 keepAlive: false,
                 configFile: "test/protractor.conf.js"
             },
-            run: {}
+            run: {
+
+            }
         },
 
         protractor_webdriver: {
@@ -205,6 +207,7 @@ module.exports = function(grunt){
                 }
             }
         },
+
         /*
          * Wiredep
          * Automatically inject Bower components into the app
@@ -238,7 +241,6 @@ module.exports = function(grunt){
         }
     });
 
-    grunt.registerTask('test', ["karma:unit:run"]);
     grunt.registerTask('default', ["browserSync", "watch", "wiredep"]);
 
 };

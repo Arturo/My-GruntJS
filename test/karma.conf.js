@@ -16,8 +16,12 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         "node_modules/chai/chai.js",
+        "app/bower_components/jquery/dist/jquery.js",
         "app/bower_components/angular/angular.js",
         "app/bower_components/angular-mocks/angular-mocks.js",
+        "app/bower_components/angular-ui-router/release/angular-ui-router.js",
+        "app/bower_components/angular-animate/angular-animate.js",
+        "app/scripts/app.js",
         'test/**/*.js'
     ],
 
