@@ -27,14 +27,14 @@ module.exports = function(grunt){
             },
             slim: {
                 files: ['<%= config.src %>/templates/slim/*.slim', '<%= config.src %>/*.slim'],
-                tasks: ['slim'],
+                tasks: ['slim', 'wiredep'],
                 options: {
                     livereload: true
                 }
             },
             jade: {
                 files: ['<%= config.src %>/templates/jade/*.jade', '<%= config.src %>/*.jade'],
-                tasks: ['jade'],
+                tasks: ['jade', 'wiredep'],
                 options: {
                     livereload: true
                 }
@@ -154,6 +154,17 @@ module.exports = function(grunt){
         },
 
         /*
+         * Wiredep
+         * Automatically inject Bower components into the app
+         */
+
+        wiredep: {
+            task: {
+                src: ['<%= config.src %>/index.html']
+            }
+        },
+
+        /*
          * Browser Sync
          */
 
@@ -175,6 +186,6 @@ module.exports = function(grunt){
         }
     });
 
-    grunt.registerTask('default', ["browserSync", "watch"]);
+    grunt.registerTask('default', ["browserSync", "watch", "wiredep"]);
 
 };

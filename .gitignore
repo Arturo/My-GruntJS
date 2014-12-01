@@ -2,4 +2,5 @@
 .ruby-gemset
 .sass-cache/
 node_modules/
-app/**/*.html
+app/templates/*.html
+app/bower_components
