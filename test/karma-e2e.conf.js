@@ -1,12 +1,15 @@
 // Karma configuration
-// Generated on Mon Dec 01 2014 19:11:09 GMT+0100 (CET)
+// Generated on Tue Dec 02 2014 00:01:43 GMT+0100 (CET)
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../',
-
+    basePath: '..',
+    urlRoot: '/_karma_/',
+    proxies: {
+        '/': 'http://localhost:3001/'
+    },
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -15,14 +18,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        "node_modules/chai/chai.js",
-        "app/bower_components/jquery/dist/jquery.js",
-        "app/bower_components/angular/angular.js",
-        "app/bower_components/angular-mocks/angular-mocks.js",
-        "app/bower_components/angular-ui-router/release/angular-ui-router.js",
-        "app/bower_components/angular-animate/angular-animate.js",
-        "app/scripts/app.js",
-        'test/spec/**/*_spec.js'
+        'test/e2e/**/*_spec.js'
     ],
 
 

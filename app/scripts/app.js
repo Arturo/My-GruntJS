@@ -9,9 +9,13 @@ angular.module('App', [
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-        .state('login', {
-          url: '/login',
+        .state('main', {
+          url: '/',
           templateUrl: '',
-          controller: 'LoginCtrl'
+          controller: 'MainCtrl'
         })
+}])
+
+.controller('MainCtrl', ['$scope', function ($scope) {
+    $scope.name = 'Arturo';
 }])

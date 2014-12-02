@@ -28,8 +28,10 @@ html ng-app="App"
     meta name='twitter:image:src' content=''
     /! Favicon
     link rel='icon' href='' type=''
-  body
+  body ng-controller='MainCtrl'
     p Yeah!!
+    p
+      | {{ name }}
 
     /! build:js scripts/application.min.js
     /! bower:js
